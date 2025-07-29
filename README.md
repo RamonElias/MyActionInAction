@@ -96,16 +96,16 @@ jobs:
     steps:
       - name: Checkout repo to use the action locally
         uses: actions/checkout@v3.5.3
-        
+
       - name: Run my own container action
         id: action
         uses: ./
         with:
           who-to-greet: '@wulfland'
-      
+
       - name: Output the answer
         run: echo "The answer is ${{ steps.action.outputs.answer }}"
-      
+
       - name: Test the container
         if: ${{ steps.action.outputs.answer != 42 }}
         run: |
@@ -113,6 +113,6 @@ jobs:
           exit 1
 ```
 
-The workflow will automatically run and execute the action. Inspect the output. You can see that the container was created and outputs th egreeting to the workflow log. The otput parameter can be access in subsequent steps.
+The workflow will automatically run and execute the action. Inspect the output. You can see that the container was created and outputs the greeting to the workflow log. The otput parameter can be access in subsequent steps.
 
 <img width="350" alt="CH 04_003" src="https://github.com/GitHubActionsInAction/ActionInAction/assets/5276337/e6d2cbc6-186b-4093-9f63-d6bc31bace75">
